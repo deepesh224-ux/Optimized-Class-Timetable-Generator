@@ -17,12 +17,12 @@ model Department {
   headOfDepartment String?
   totalFaculty   Int?
   totalStudents  Int?
-  userId         Int
+  userId         Int?
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
 
   // Relations
-  user           AuthorizedUser    @relation(fields: [userId], references: [id])
+  user           AuthorizedUser?    @relation(fields: [userId], references: [id])
   faculties      Faculty[]
   classrooms     Classroom[]
   subjects       Subject[]
@@ -43,9 +43,9 @@ model Faculty {
   availableDays       String    // JSON string: ["MONDAY", "TUESDAY", ...]
   preferredSlots      String?   // JSON string: ["09:00-10:00", ...]
   departmentId        Int
-  userId              Int
+  userId              Int?
   department          Department @relation(fields: [departmentId], references: [id])
-  user                AuthorizedUser @relation(fields: [userId], references: [id])
+  user                AuthorizedUser? @relation(fields: [userId], references: [id])
 
   subjects            SubjectFaculty[]
   timetableSlots      TimetableSlot[]
@@ -60,12 +60,12 @@ model Classroom {
   year         Int
   semester     Int
   departmentId Int
-  userId       Int
+  userId       Int?
   createdAt    DateTime  @default(now())
 
   // Relations
   department   Department @relation(fields: [departmentId], references: [id])
-  user         AuthorizedUser @relation(fields: [userId], references: [id])
+  user         AuthorizedUser? @relation(fields: [userId], references: [id])
   students     Student[]
   timetableSlots TimetableSlot[]
 }
@@ -96,7 +96,7 @@ model Subject {
   code           String
   name           String
   departmentId   Int
-  userId         Int
+  userId         Int?
   credits        Int?
   lecturesPerWeek Int?
   labsPerWeek    Int?      @default(0)
@@ -113,7 +113,7 @@ model Subject {
 
   // Relations
   department    Department @relation(fields: [departmentId], references: [id])
-  user          AuthorizedUser @relation(fields: [userId], references: [id])
+  user          AuthorizedUser? @relation(fields: [userId], references: [id])
   timetableSlots TimetableSlot[]
   facultyAssignments SubjectFaculty[]
 }
