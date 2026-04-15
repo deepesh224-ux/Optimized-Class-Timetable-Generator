@@ -6,7 +6,7 @@ Intelligent Scheduling for Smarter Campuses
 
 
 
-# 🧩 The Problem
+#  The Problem
 Most colleges still rely on manual or spreadsheet-based timetable creation, leading to:
 Class clashes and faculty overload
 
@@ -22,7 +22,7 @@ Frustrated students and faculty
 
 With NEP 2020 promoting flexible and multidisciplinary learning, scheduling complexity has exploded — existing tools can’t keep up.
 
-# 💡 The Idea
+#  The Idea
 An AI-powered, web-based platform that automatically generates optimized timetables for colleges by balancing:
 Room utilization
 
@@ -34,7 +34,7 @@ Fixed and elective slots
 
 All while ensuring zero clashes and maximum efficiency using **Google Gemini AI**.
 
-# ⚙️ How It Works
+#  How It Works
 You input:
 
 Faculty, subjects, rooms, and constraints
@@ -48,7 +48,7 @@ Users can review, tweak, and approve the final schedule
 Exports available in **Professional PDF** for easy sharing
 
 
-# 🧠 Tech Stack
+# Tech Stack
 **Frontend:** React (Vite), Tailwind CSS (Glassmorphism Design), Lucide Icons
 **Backend:** Node.js (Express)
 **Database:** MySQL (TiDB Cloud) with Prisma ORM
@@ -57,30 +57,30 @@ Exports available in **Professional PDF** for easy sharing
 **Tools:** jsPDF (Export), React Router
 **Hosting:** Vercel (Frontend), Render (Backend)
 
-# 🔐 Login & Signup System (How it Works)
+# Login & Signup System (How it Works)
 The backend handles who is allowed to enter the system.
 
 ### How we check users:
 1. **Signup**: When a user signs up, we save their **Email** and **Password** safely in our database.
 2. **Login**: When a user tries to log in, we check if their **Email** and **Password** match what we have.
-   - If it matches -> **Access Granted!** ✅
-   - If it is wrong -> **Access Denied!** ❌
+   - If it matches -> **Access Granted!** 
+   - If it is wrong -> **Access Denied!** 
 
 We use **JWT (JSON Web Tokens)** to give users a "digital pass" so they stay logged in while using the app.
 
-# 🌟 Key Features
-🎨 **Modern Glassmorphism UI** - Beautiful, intuitive interface with gradient aesthetics
-📄 **Professional PDF Export** - Generate print-ready A4 landscape timetables
-🤖 **AI-Powered Scheduling** - Utilizes Google Gemini to solve complex constraints
-🧑‍🏫 **Faculty Load Management** - Automatic workload balancing and leave tracking
-🏫 **Room Optimization** - Efficient allocation of labs and classrooms
-⚖️ **Conflict Detection** - Real-time analysis of changing constraints
-🔐 **Private Access** - Secure isolated workspace for your data
-✅ **Approval Workflow** - Draft -> Pending -> Approved/Rejected cycle
+# Key Features
+ **Modern Glassmorphism UI** - Beautiful, intuitive interface with gradient aesthetics
+ **Professional PDF Export** - Generate print-ready A4 landscape timetables
+ **AI-Powered Scheduling** - Utilizes Google Gemini to solve complex constraints
+ **Faculty Load Management** - Automatic workload balancing and leave tracking
+ **Room Optimization** - Efficient allocation of labs and classrooms
+ **Conflict Detection** - Real-time analysis of changing constraints
+ **Private Access** - Secure isolated workspace for your data
+ **Approval Workflow** - Draft -> Pending -> Approved/Rejected cycle
 
 
 
-# 🚀 Impact
+#  Impact
 Saves 80% time vs manual scheduling
 
 
@@ -97,7 +97,7 @@ Scalable for any university structure or NEP 2020-based curriculum
 
 
 
-# 🔮 Future Scope
+#  Future Scope
 Student elective integration
 
 
@@ -111,7 +111,7 @@ Integration with LMS platforms
 
 
 
-# 🧭 Vision
+#  Vision
 To make academic scheduling smart, conflict-free, and adaptive —
  helping institutions focus less on logistics and more on learning outcomes.
 
@@ -121,7 +121,7 @@ Here’s your content formatted in **Markdown** for clean preview and readabilit
 # University Timetable Database Schema 
 
 
-# 🏫 1. Department Model
+#  1. Department Model
 
 ### **Purpose**
 
@@ -143,11 +143,11 @@ Represents an academic department (like CSE, ECE, MECH, etc.) — acts as the co
 * **timetableSlots** → Slots scheduled under this department
 * **authorizedUsers** → Users tied to this department
 
-💡 **Use:** You’ll use this as a central reference when generating department-wise timetables, faculty loads, and subject allocations.
+ **Use:** You’ll use this as a central reference when generating department-wise timetables, faculty loads, and subject allocations.
 
 ---
 
-# 👨‍🏫 2. Faculty Model
+#  2. Faculty Model
 
 ### **Purpose**
 
@@ -167,11 +167,11 @@ Represents a faculty member and their workload preferences.
 * **subjects** → Links through *SubjectFaculty* (many-to-many)
 * **timetableSlots** → Timetable slots assigned to this faculty
 
-💡 **Use:** Helps scheduler respect teacher availability, avoid overload, and balance lectures across week.
+ **Use:** Helps scheduler respect teacher availability, avoid overload, and balance lectures across week.
 
 ---
 
-# 🏫 3. Classroom Model
+#  3. Classroom Model
 
 ### **Purpose**
 
@@ -189,13 +189,13 @@ Represents a specific classroom or lab space.
 
 * **timetableSlots** → Slots conducted in this room
 
-💡 **Use:** Prevents double-booking and helps allocate suitable rooms (e.g., labs for practicals).
+ **Use:** Prevents double-booking and helps allocate suitable rooms (e.g., labs for practicals).
 
 ---
 
 
 
-# 📘 4. Subject Model
+#  4. Subject Model
 
 ### **Purpose**
 
@@ -214,11 +214,11 @@ Stores course or subject information.
 * **facultyAssignments** → Many-to-many through *SubjectFaculty*
 * **timetableSlots** → When/where subject is scheduled
 
-💡 **Use:** Forms the backbone of timetable creation — defines teaching load and type of room needed.
+ **Use:** Forms the backbone of timetable creation — defines teaching load and type of room needed.
 
 ---
 
-# 🔗 5. SubjectFaculty Model (Join Table)
+#  5. SubjectFaculty Model (Join Table)
 
 ### **Purpose**
 
@@ -233,11 +233,11 @@ Connects multiple faculties to multiple subjects (many-to-many).
 * **faculty** → Faculty assigned
 * **subject** → Subject taught
 
-💡 **Use:** Allows co-teaching, lab assistance, or cross-department faculty handling.
+ **Use:** Allows co-teaching, lab assistance, or cross-department faculty handling.
 
 ---
 
-# 🕓 6. TimetableSlot Model
+#  6. TimetableSlot Model
 
 ### **Purpose**
 
@@ -254,12 +254,12 @@ Represents each lecture/lab time block.
 * **subject**, **faculty**, **classroom**, **department**
 * **timetable** *(optional)* → Belongs to a version of timetable
 
-💡 **Use:** Core of the scheduling engine. Prevents conflicts using
+ **Use:** Core of the scheduling engine. Prevents conflicts using
 `@@unique([dayOfWeek, startTime, classroomId])`.
 
 ---
 
-# 👨‍💼 7. AuthorizedUser Model
+#  7. AuthorizedUser Model
 
 ### **Purpose**
 
@@ -276,11 +276,11 @@ Handles authentication and secure access control.
 * **approvals** → Links to timetable approvals
 * **generatedTimetables** → Timetables created by this user
 
-💡 **Use:** Manages authentication for your private workspace.
+ **Use:** Manages authentication for your private workspace.
 
 ---
 
-# 📅 8. Timetable Model
+#  8. Timetable Model
 
 ### **Purpose**
 
@@ -296,11 +296,11 @@ Stores a full timetable version (like `"CSE Sem 3 - Draft 1"`).
 * **slots** → All slots under this timetable
 * **approvals** → Review/approval process
 
-💡 **Use:** Enables multiple timetable versions, scoring, and comparisons before final approval.
+ **Use:** Enables multiple timetable versions, scoring, and comparisons before final approval.
 
 ---
 
-# ✅ 9. Approval Model
+#  9. Approval Model
 
 ### **Purpose**
 
@@ -315,11 +315,11 @@ Tracks approval workflow of timetables.
 * **timetable** → The timetable being approved
 * **approver** → AuthorizedUser reviewing it
 
-💡 **Use:** Tracks approval status of your generated timetables.
+ **Use:** Tracks approval status of your generated timetables.
 
 ---
 
-# 🔤 Enums
+#  Enums
 
 
 

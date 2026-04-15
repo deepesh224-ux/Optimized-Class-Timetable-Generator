@@ -4,8 +4,8 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Loader from './Loader';
 
-const ProtectedRoute = ({ allowedRoles }) => {
-    const { isAuthenticated, loading, user } = useAuth();
+const ProtectedRoute = () => {
+    const { isAuthenticated, loading } = useAuth();
 
     if (loading) {
         return <div className="h-screen flex items-center justify-center"><Loader /></div>;
@@ -13,10 +13,6 @@ const ProtectedRoute = ({ allowedRoles }) => {
 
     if (!isAuthenticated) {
         return <Navigate to="/login" replace />;
-    }
-
-    if (allowedRoles && !allowedRoles.includes(user?.role)) {
-        return <Navigate to="/dashboard" replace />;
     }
 
     return (
